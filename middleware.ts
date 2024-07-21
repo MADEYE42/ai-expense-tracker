@@ -1,13 +1,13 @@
-import { authMiddleware } from "@clerk/nextjs";
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-export default authMiddleware({
-    publicRoutes: ['/'], // Root path is public
+export default clerkMiddleware((auth,req)=>{
+    if(isProtectedRoute(req)) auth().protect();
 });
-
+const isProtectedRoute = createRouteMatcher(
+    [ '/dashboard',
+        '/',
+    ]
+)
 export const config = {
-  matcher: [
-    "/((?!.+\\.[\\w]+$|_next).*)", // All paths except those with file extensions and `_next`
-    "/", // Root path
-    "/(api|trpc)(.*)", // Paths starting with `api` or `trpc`
-  ],
+  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
 };
