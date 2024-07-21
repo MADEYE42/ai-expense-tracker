@@ -1,6 +1,5 @@
 "use client"
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import { UserButton, useUser } from '@clerk/nextjs';
 import LOGO from '../../../public/logo.png';
 import Image from 'next/image';
@@ -17,12 +16,12 @@ const Header = () => {
       {signedIn ? (
         <UserButton />
       ) : (
-        <div className='flex gap-3 items-center'>
+        <div className='flex gap-3  items-center '>
           <Link href='/dashboard'>
-            <Button variant="outline" className='hidden sm:inline-block'>Dashboard</Button>
+            <button variant="outline" className='p-3 rounded-full font-bold border hover:bg-gray-300 duration-300 hidden sm:inline-block'>Dashboard</button>
           </Link>
           <Link href='/dashboard'>
-            <Button className='hidden sm:inline-block'>Get Started</Button>
+            <button className='bg-purple-600 p-3 rounded-full font-bold duration-300 hover:bg-purple-800 hover:text-white  hidden sm:inline-block'>Get Started</button>
           </Link>
         </div>
       )}

@@ -1,9 +1,11 @@
 "use client"
-import React from 'react'
-
+import React from 'react' ;
+import SideNav
 const layout = () => {
   return (
-    <div>layout</div>
+    <div>
+      <SideNav/>
+    </div>
   )
 }
 

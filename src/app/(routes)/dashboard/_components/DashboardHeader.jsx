@@ -4,12 +4,8 @@ import React from 'react'
 const DashboardHeader = () => {
   return (
     <div className='p-5 shadow-sm border-b flex justify-between'>
-        <div>
-
-        </div>
-        <div>
+          <h1 className='text-3xl font-bold'>Dashboard</h1>
             <UserButton afterSignOutUrl='/'/>
-        </div>
     </div>
   )
 }
